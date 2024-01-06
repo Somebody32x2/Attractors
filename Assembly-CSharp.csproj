@@ -45,6 +45,8 @@
      <Compile Include="Assets\AttractorManager.cs" />
      <Compile Include="Assets\Aizawa.cs" />
      <Compile Include="Assets\Rossler.cs" />
+     <Compile Include="Assets\RGBCube.cs" />
+     <Compile Include="Assets\Wavelengths.cs" />
      <Compile Include="Assets\Thomas.cs" />
      <Compile Include="Assets\NoseHoover.cs" />
      <Compile Include="Assets\Lorenz.cs" />
