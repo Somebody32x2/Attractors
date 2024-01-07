@@ -28,6 +28,6 @@ public abstract class CircleAttractor : MonoBehaviour
     // }
 
     public abstract ParticleSystem.Particle[] SetParticlePos(ParticleSystem.Particle[] particles, int numParticlesAlive,
-        float t, float magnifigcation, float[] iValues)
+        double t, float magnification, float[] iValues);
 
 }
