@@ -17,6 +17,7 @@ public class CirclesAttractorManager : MonoBehaviour
     public GameObject variableInputPrefab;
     public GameObject UI;
     public GameObject dtReferenceVar;
+    
     public float speed = 1;
     public double t = 0;
     public float magnification = 1;
@@ -27,6 +28,8 @@ public class CirclesAttractorManager : MonoBehaviour
     public float renderOffset = 0;
     public float renderSpeed = 1;
     
+    public float userTrailLength = 0.0001f;
+    public bool useZ = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -68,7 +71,7 @@ public class CirclesAttractorManager : MonoBehaviour
             iValue += 1 + (isRendering ? renderOffset : 0);
             iValues[i] = iValue;
         }
-        particles = activeAttractor.SetParticlePos(particles, numParticlesAlive, t, magnification, iValues);
+        particles = activeAttractor.SetParticlePos(particles, numParticlesAlive, t, magnification, iValues, useZ);
         // Apply the particle changes to the Particle System
         ps.SetParticles(particles, numParticlesAlive);
         if (isRendering)
@@ -189,9 +192,10 @@ public class CirclesAttractorManager : MonoBehaviour
     }
     public void SetTrailLength(string trailLength)
     {
-        // Set the trail length of the particle system
+        // Set the trail length of the particle system (THIS GETS CALLED BY THE UI COMPONENT)
         var trail = ps.trails;
-        trail.lifetime = float.Parse(trailLength);
+        userTrailLength = float.Parse(trailLength);
+        trail.lifetime = userTrailLength;
         ResetPS();
         ResetPS();
     }
@@ -216,7 +220,7 @@ public class CirclesAttractorManager : MonoBehaviour
         speed = float.Parse(speedStr);
         if (speed == 0) SetTrailLength("0", false);
         if (speed < 1) SetTrailLength("0", false);
-        SetTrailLength(Mathf.Abs(ps.trails.lifetime.constant/speed).ToString(), false);
+        SetTrailLength(Mathf.Abs(userTrailLength/speed).ToString(), false);
         // ResetPS();
     }
     public void SetSpeed(string speedStr, bool setUI=false)

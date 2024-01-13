@@ -15,7 +15,7 @@ public class MainCirclesAttractor : CircleAttractor
     public override Dictionary<string, float> DefaultVariables =>
         new();
 
-    public override ParticleSystem.Particle[] SetParticlePos(ParticleSystem.Particle[] particles, int numParticlesAlive, double t, float magnification, float[] iValues)
+    public override ParticleSystem.Particle[] SetParticlePos(ParticleSystem.Particle[] particles, int numParticlesAlive, double t, float magnification, float[] iValues, bool useZ)
     {
         for (int particleIndex = 0; particleIndex < particles.Length; particleIndex++)
         {
@@ -29,7 +29,8 @@ public class MainCirclesAttractor : CircleAttractor
                     double d = 1000 + numParticlesAlive;
                     x = Math.Sin(i) * Math.Cos((t / d) * i);
                     y = Math.Cos(i) * Math.Cos((t / d) * i);
-                    z = Math.Sin(i) * Math.Sin((t / d) * i);
+                    if (useZ) z = Math.Sin(i) * Math.Sin((t / d) * i);
+                    else z = 0;
                     break;
             }
 
