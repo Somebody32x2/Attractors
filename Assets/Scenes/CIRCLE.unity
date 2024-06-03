@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.003995701, g: 0.00021792622, b: 0.000000051515347, a: 1}
+  m_IndirectSpecularColor: {r: 0.003995703, g: 0.0002179264, b: 0.000000051515347, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1531,9 +1531,10 @@ GameObject:
   - component: {fileID: 727033206}
   - component: {fileID: 727033205}
   - component: {fileID: 727033209}
-  - component: {fileID: 727033211}
   - component: {fileID: 727033210}
   - component: {fileID: 727033212}
+  - component: {fileID: 727033213}
+  - component: {fileID: 727033214}
   m_Layer: 6
   m_Name: Particle System
   m_TagString: Untagged
@@ -6427,29 +6428,18 @@ MonoBehaviour:
   variableInputPrefab: {fileID: 6358811590181250812, guid: 14adcf01a7fdb4346963b1af7783644b, type: 3}
   UI: {fileID: 2076511487}
   dtReferenceVar: {fileID: 1255029311}
+  numParticles: 1000
   speed: 1
   t: 0
   magnification: 50
   drawLines: 1
   lineRenderer: {fileID: 0}
-  isRendering: 1
+  isRendering: 0
   renderIncrement: 0
   renderOffset: 0
   renderSpeed: 1
---- !u!114 &727033211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727033203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68eadaa0fca844729370a802b6c7af76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scale: 10
-  circlesMode: 0
+  userTrailLength: 0.0001
+  useZ: 0
 --- !u!120 &727033212
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -6547,6 +6537,30 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!114 &727033213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727033203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68eadaa0fca844729370a802b6c7af76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &727033214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727033203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae057bb1e5e423e9b92c97156052ede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &826949695
 GameObject:
   m_ObjectHideFlags: 0
@@ -7133,7 +7147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -17.9, y: 23.6}
+  m_AnchoredPosition: {x: -17.899994, y: 23.599976}
   m_SizeDelta: {x: 202.70001, y: 30}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &974508956

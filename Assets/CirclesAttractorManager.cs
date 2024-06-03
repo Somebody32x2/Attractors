@@ -18,18 +18,21 @@ public class CirclesAttractorManager : MonoBehaviour
     public GameObject UI;
     public GameObject dtReferenceVar;
     
+    public int numParticles = 1000;
     public float speed = 1;
     public double t = 0;
     public float magnification = 1;
     public bool drawLines = true;
     public LineRenderer lineRenderer;
-    public bool isRendering = true;
+    public bool isRendering = false;
     public float renderIncrement = 0.1f;
     public float renderOffset = 0;
     public float renderSpeed = 1;
     
     public float userTrailLength = 0.0001f;
-    public bool useZ = true;
+    public bool useZ = false;
+    
+    private bool lastDrawLines = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +50,8 @@ public class CirclesAttractorManager : MonoBehaviour
         }
         
         ps = GetComponent<ParticleSystem>();
+        var main = ps.main;
+        main.maxParticles = numParticles;
         StartCoroutine(SetColors());
         
         // Switch to the first attractor to get the UI set up
@@ -111,6 +116,11 @@ public class CirclesAttractorManager : MonoBehaviour
         {
             RedrawLines();
         }
+        if (lastDrawLines != drawLines)
+        {
+            gameObject.GetComponent<LineRenderer>().enabled = drawLines;
+            lastDrawLines = drawLines;
+        }
     }
 
     public void ResetPS()
@@ -128,7 +138,9 @@ public class CirclesAttractorManager : MonoBehaviour
         lineRenderer.positionCount = main.maxParticles;
         var particles = new ParticleSystem.Particle[main.maxParticles];
         ps.GetParticles(particles);
-        lineRenderer.SetPositions(particles.Select(particle => particle.position).ToArray());
+        var positions = particles.Select(particle => particle.position).ToArray();
+        // Debug.Log(positions.Length + " " + lineRenderer.positionCount + " " + positions[0] + " " + positions[^1] + " " + particles.Length);
+        lineRenderer.SetPositions(positions);
     }
 
     public void ResetTime()
@@ -139,6 +151,7 @@ public class CirclesAttractorManager : MonoBehaviour
     
     public void SwitchAttractor(int attractorIndex)
     {
+        t = 0;
         // Disable all attractors
         foreach (CircleAttractor att in attractors.Values)
         {

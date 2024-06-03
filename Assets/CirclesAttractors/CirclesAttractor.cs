@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// LOTS of Attractors at http://www.3d-meier.de/tut19/Seite0.html
+
 public abstract class CircleAttractor : MonoBehaviour
 {
     private ParticleSystem ps;
