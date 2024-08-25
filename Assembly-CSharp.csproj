@@ -52,10 +52,12 @@
     <Compile Include="Assets\Wavelengths.cs" />
     <Compile Include="Assets\Thomas.cs" />
     <Compile Include="Assets\NoseHoover.cs" />
-    <Compile Include="Assets\Lorenz.cs" />
-    <Compile Include="Assets\Attractor.cs" />
-    <Compile Include="Assets\CirclesAttractors\ConventionalCirclesAttractor.cs" />
     <Compile Include="Assets\CirclesAttractors\WingsCirclesAttractor.cs" />
+    <Compile Include="Assets\Lorenz.cs" />
+    <Compile Include="Assets\CirclesAttractors\ConventionalCirclesAttractor.cs" />
+    <Compile Include="Assets\Attractor.cs" />
+    <Compile Include="Assets\DoublePendulums\DoublePendulumsManager.cs" />
+    <Compile Include="Assets\DoublePendulums\DoublePendulum.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Resources\BillingMode.json" />
