@@ -45,7 +45,9 @@
     <Compile Include="Assets\AttractorManager.cs" />
     <Compile Include="Assets\CirclesAttractorManager.cs" />
     <Compile Include="Assets\Aizawa.cs" />
+    <Compile Include="Assets\DoublePendulums\DoublePendulum.cs" />
     <Compile Include="Assets\Rossler.cs" />
+    <Compile Include="Assets\DoublePendulums\DoublePendulumsManager.cs" />
     <Compile Include="Assets\CirclesAttractors\FlowerCirclesAttractor.cs" />
     <Compile Include="Assets\RGBCube.cs" />
     <Compile Include="Assets\CirclesAttractors\CirclesAttractor.cs" />
@@ -56,8 +58,6 @@
     <Compile Include="Assets\Lorenz.cs" />
     <Compile Include="Assets\CirclesAttractors\ConventionalCirclesAttractor.cs" />
     <Compile Include="Assets\Attractor.cs" />
-    <Compile Include="Assets\DoublePendulums\DoublePendulumsManager.cs" />
-    <Compile Include="Assets\DoublePendulums\DoublePendulum.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Resources\BillingMode.json" />
@@ -356,6 +356,12 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>C:\Users\samue\Code\C# Unity\Particle Physics-Attractors\Library\PackageCache\com.unity.analytics@3.6.12\Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.6f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.6f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.6f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>

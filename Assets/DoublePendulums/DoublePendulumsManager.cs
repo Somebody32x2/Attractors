@@ -30,6 +30,7 @@ public class DoublePendulumsManager : MonoBehaviour
     public bool drawLines = true;
     public bool multByDt = true; // Multiply the speed by the delta time, or use 1/60
     public LineRenderer lineRenderer;
+    public bool reset = false;
     
     public float userTrailLength = 0.0001f;
     // public bool useZ = false;
@@ -58,6 +59,11 @@ public class DoublePendulumsManager : MonoBehaviour
     public float updatesRemaining = 0;
     private void Update()
     {
+        if (reset)
+        {
+            ResetPS();
+            reset = false;
+        }
         if (lastNumPendulums != numPendulums)
         {
             SetNumPendulums(numPendulums+"");
@@ -159,6 +165,9 @@ public class DoublePendulumsManager : MonoBehaviour
         var particles = new ParticleSystem.Particle[main.maxParticles];
         ps.GetParticles(particles);
         var positions = particles.Select(particle => particle.position).ToArray();
+        var colorGrad = new Gradient();
+        var colorKeys = new GradientColorKey[numPendulums];
+        // Debug.Log(colorKeys.Length + " " + colorKeys.GetLowerBound(0) + " " + colorKeys.GetUpperBound(0));
         // Insert (0, 0, 0) so that it always goes after a point2 if point1 is enabled
         
         if (showPoint1 && showPoint2)
@@ -214,8 +223,8 @@ public class DoublePendulumsManager : MonoBehaviour
         var trail = ps.trails;
         userTrailLength = float.Parse(trailLength);
         trail.lifetime = userTrailLength;
-        ResetPS();
-        ResetPS();
+        ResetPS(false);
+        ResetPS(false);
     }
     public void SetTrailLength(string trailLength, bool resetPS)
     {
