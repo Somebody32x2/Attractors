@@ -61,6 +61,10 @@ sysinfo.txt
 *.unitypackage
 *.app
 
+# Distribution folders
+/Dist/
+/Dist_Linux/
+
 # Crashlytics generated file
 crashlytics-build.properties
 
